@@ -20,13 +20,13 @@ class Goimports < Formula
   end
 
   test do
-    (testpath/"main.go").write <<~EOS
+    (testpath/"main.go").write <<~GO
       package main
 
       func main() {
         fmt.Println("hello")
       }
-    EOS
+    GO
 
     assert_match(/\+import "fmt"/, shell_output("#{bin}/goimports -d #{testpath}/main.go"))
   end
