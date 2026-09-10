@@ -1,8 +1,8 @@
 class Nx < Formula
   desc "Smart, Fast and Extensible Build System"
   homepage "https://nx.dev"
-  url "https://registry.npmjs.org/nx/-/nx-23.2.0.tgz"
-  sha256 "edc02089226dc54b9f29b8c027915e176c4e2b2c7a7c274e29f46baad667d53a"
+  url "https://registry.npmjs.org/nx/-/nx-23.2.1.tgz"
+  sha256 "9da5b6ea573fb377221e13ede170c8a2576bd0819791193a09a55d52c8cfd28d"
   license "MIT"
   version_scheme 1
 
@@ -22,6 +22,10 @@ class Nx < Formula
   end
 
   test do
+    # Avoid daemon and plugin worker sockets in the test sandbox.
+    ENV["NX_DAEMON"] = "false"
+    ENV["NX_ISOLATE_PLUGINS"] = "false"
+
     (testpath/"package.json").write <<~JSON
       {
         "name": "@acme/repo",
