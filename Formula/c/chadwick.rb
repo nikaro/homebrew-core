@@ -1,8 +1,8 @@
 class Chadwick < Formula
   desc "Tools for manipulating baseball data"
   homepage "https://chadwick.readthedocs.io"
-  url "https://github.com/chadwickbureau/chadwick/releases/download/v0.10.0/chadwick-0.10.0.tar.gz"
-  sha256 "a4128934286edf5f9938923aad2000f7549dcccfb3b3f149a417534ef7eb29e9"
+  url "https://github.com/chadwickbureau/chadwick/releases/download/v0.11.0/chadwick-0.11.0.tar.gz"
+  sha256 "c80d24dfd37707719c3e81883417a57339c4d60865e39ae73aebdbbfe2190259"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -117,7 +117,7 @@ class Chadwick < Formula
     EOS
 
     # check chadwick's standard output
-    exec_str = "#{bin}/cwbox -X -q -i #{attr[:game_id]} -y #{date_y} #{evn_file}"
+    exec_str = "#{bin}/cwbox -X -Q -i #{attr[:game_id]} -y #{date_y} #{evn_file}"
     out = shell_output(exec_str.sub("-X", ""))
     assert_match "Game of #{date_m_d_y} -- #{attr[:visitor_city]} at #{attr[:home_city]}", out
 
