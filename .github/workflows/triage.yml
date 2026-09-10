@@ -336,18 +336,12 @@ jobs:
                 cmake|\
                 freetype|\
                 gcc|\
-                gettext|\
-                glib|\
                 gtk\\+3|\
                 jpeg-turbo|\
                 libpng|\
                 node|\
-                numpy|\
-                openblas|\
-                openssl@3|\
                 pango|\
                 pcre2|\
-                python@3.14|\
                 qtbase|\
                 readline|\
                 zstd\
@@ -360,14 +354,19 @@ jobs:
                 cabal-install|\
                 docbook-xsl|\
                 erlang|\
+                gettext|\
                 ghc|\
+                glib|\
                 go|\
                 libxml2|\
                 ocaml|\
                 ocaml-findlib|\
                 openjdk|\
+                openssl@3|\
                 pkgconf|\
-                rust\
+                python@3.14|\
+                rust|\
+                zlib-ng-compat\
                 ).rb"
               keep_if_no_match: true
               allow_any_match: true
