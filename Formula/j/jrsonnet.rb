@@ -30,6 +30,9 @@ class Jrsonnet < Formula
   depends_on "rust" => :build
 
   def install
+    # TODO: `throw!` macro trips `semicolon_in_expressions_from_macros`, deny-by-default since Rust 1.91
+    ENV.append_to_rustflags "--allow semicolon_in_expressions_from_macros"
+
     system "cargo", "install", *std_cargo_args(path: "cmds/jrsonnet")
     if build.head?
       generate_completions_from_executable(bin/"jrsonnet", "generate")
