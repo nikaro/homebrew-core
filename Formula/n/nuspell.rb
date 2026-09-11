@@ -1,8 +1,8 @@
 class Nuspell < Formula
   desc "Fast and safe spellchecking C++ library"
   homepage "https://nuspell.github.io/"
-  url "https://github.com/nuspell/nuspell/archive/refs/tags/v5.1.8.tar.gz"
-  sha256 "4221df51003a4406717440f617044e03f916dfcb900e2d1f13902c533b0969f8"
+  url "https://github.com/nuspell/nuspell/archive/refs/tags/v5.1.9.tar.gz"
+  sha256 "658a28d2c622b6da5271544043a5b7b3e09881be8516a23efc11c43971b4b046"
   license "LGPL-3.0-or-later"
 
   bottle do
@@ -20,6 +20,8 @@ class Nuspell < Formula
   depends_on "pkgconf" => :test
   depends_on "icu4c@78"
 
+  deny_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
     system "cmake", "--build", "build"
@@ -33,7 +35,7 @@ class Nuspell < Formula
 
     (testpath/"test.txt").write("helloo\nworlld")
     assert_match <<~EOS, shell_output("#{bin}/nuspell test.txt 2>&1", 1)
-      INFO: Locale LC_CTYPE=en_US.UTF-8, Input encoding=UTF-8, Output encoding=UTF-8
+      INFO: Input encoding=UTF-8, Output encoding=UTF-8
       ERROR: Dictionary en_US not found
     EOS
 
