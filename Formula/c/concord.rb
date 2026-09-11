@@ -1,8 +1,8 @@
 class Concord < Formula
   desc "Terminal user interface client for Discord"
   homepage "https://github.com/chojs23/concord"
-  url "https://github.com/chojs23/concord/archive/refs/tags/v2.5.18.tar.gz"
-  sha256 "f3f7cd385fa7717afd99634005302f37aa38cc22339d872d8e09b59640f65a38"
+  url "https://github.com/chojs23/concord/archive/refs/tags/v2.5.19.tar.gz"
+  sha256 "1ab0b2a11ccea934f83fe381732741c56c49891350e59431085c2f6aa4ef7f36"
   license "GPL-3.0-only"
 
   bottle do
