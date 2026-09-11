@@ -41,6 +41,10 @@ class VorbisTools < Formula
   end
 
   def install
+    # vorbis-tools uses K&R function definitions, which C23 no longer supports
+    # getopt.c:211:11: error: unknown type name 'str'
+    ENV.append "CFLAGS", "-std=gnu17"
+
     if OS.mac? && (MacOS.version >= :monterey)
       # Workaround for Xcode 14 ld.
       system "autoreconf", "--force", "--install", "--verbose"
