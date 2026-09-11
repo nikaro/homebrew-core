@@ -335,14 +335,12 @@ jobs:
                 boost|\
                 cmake|\
                 freetype|\
-                gcc|\
                 gtk\\+3|\
                 jpeg-turbo|\
                 libpng|\
                 node|\
                 pango|\
                 pcre2|\
-                qtbase|\
                 readline|\
                 zstd\
                 ).rb"
