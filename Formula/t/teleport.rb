@@ -38,10 +38,6 @@ class Teleport < Formula
 
   conflicts_with "etsh", because: "both install `tsh` binaries"
   conflicts_with "tctl", because: "both install `tctl` binaries"
-  conflicts_with cask: "teleport-suite"
-  conflicts_with cask: "teleport-suite@17"
-  conflicts_with cask: "teleport-suite@16"
-  conflicts_with cask: "tsh", because: "both install `tsh` binaries"
 
   resource "wasm-bindgen" do
     url "https://github.com/wasm-bindgen/wasm-bindgen/archive/refs/tags/0.2.122.tar.gz"
