@@ -25,6 +25,8 @@ class Ipmiutil < Formula
   def install
     # Workaround for newer Clang
     ENV.append "CC", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+    # autoconf 2.73 selects C23, which rejects the implicit declarations in this codebase
+    ENV["ac_cv_prog_cc_c23"] = "no"
 
     # Darwin does not exist only on PowerPC
     if OS.mac?
