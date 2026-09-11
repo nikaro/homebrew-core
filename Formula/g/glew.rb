@@ -70,36 +70,48 @@ class Glew < Formula
     system "cmake", "-S", ".", "-B", "build", "-Wno-author"
     system "cmake", "--build", "build"
 
-    glut = if OS.mac?
-      "GLUT"
-    else
-      "GL"
-    end
     (testpath/"test.c").write <<~C
+      #include <assert.h>
       #include <GL/glew.h>
-      #include <#{glut}/glut.h>
+      #ifdef __APPLE__
+      #include <OpenGL/OpenGL.h>
+      #else
+      #include <GL/glut.h>
+      #endif
 
       int main(int argc, char** argv) {
+        #ifdef __APPLE__
+        CGLPixelFormatAttribute attributes[] = {kCGLPFAAllowOfflineRenderers, 0};
+        CGLPixelFormatObj format;
+        CGLContextObj context;
+        GLint count;
+        assert(CGLChoosePixelFormat(attributes, &format, &count) == kCGLNoError);
+        assert(format);
+        assert(CGLCreateContext(format, NULL, &context) == kCGLNoError);
+        CGLDestroyPixelFormat(format);
+        assert(CGLSetCurrentContext(context) == kCGLNoError);
+        #else
         glutInit(&argc, argv);
         glutCreateWindow("GLEW Test");
+        #endif
         GLenum err = glewInit();
         if (GLEW_OK != err) {
           return 1;
         }
+        #ifdef __APPLE__
+        CGLSetCurrentContext(NULL);
+        CGLDestroyContext(context);
+        #endif
         return 0;
       }
     C
     flags = %W[-L#{lib} -lGLEW]
     if OS.mac?
-      flags << "-framework" << "GLUT"
+      flags << "-framework" << "OpenGL"
     else
       flags << "-lglut"
     end
     system ENV.cc, testpath/"test.c", "-o", "test", *flags
-    # Tahoe running is headless for now, maybe remove this later
-    # ("GLUT Fatal Error: redisplay needed for window 1, but no display callback")
-    return if OS.mac? && MacOS.version == :tahoe && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     if OS.linux? && ENV.exclude?("DISPLAY")
       system Formula["xorg-server"].bin/"xvfb-run", "./test"
     else
