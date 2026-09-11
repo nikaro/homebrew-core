@@ -12,12 +12,13 @@ class Ronn < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "56ccd5c1249492486887b691294cc5e521a62e9231ed4f0db5a1306db44ec24d"
-    sha256                               arm64_sequoia: "2054164b76be1b88a653e4b65b073a7130ca248555730d5c69e38e0889f7c6a4"
-    sha256                               arm64_sonoma:  "c91aa9b37dd6e5d962e37c66fe2e9b04e44204d2a09bf464cd4c2bf247c305ff"
-    sha256                               sonoma:        "a7545d2ab894ffc07599930c70aeebec826619b150d37f91a6e1f7dec4f4772a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c9d3d1240e95a231b3136f13d93a5c628599ef75e4560363970e0cdf8223b85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3a40cabe57b7456d236125ccb6ecd55d0a9a89bf0eb34bf5ad4933aaa9c6cbd"
+    sha256                               arm64_golden_gate: "803bc47344a31ed31c0c76ea717b1216db8cf46838ee0ba089f462f0b5379afe"
+    sha256                               arm64_tahoe:       "56ccd5c1249492486887b691294cc5e521a62e9231ed4f0db5a1306db44ec24d"
+    sha256                               arm64_sequoia:     "2054164b76be1b88a653e4b65b073a7130ca248555730d5c69e38e0889f7c6a4"
+    sha256                               arm64_sonoma:      "c91aa9b37dd6e5d962e37c66fe2e9b04e44204d2a09bf464cd4c2bf247c305ff"
+    sha256                               sonoma:            "a7545d2ab894ffc07599930c70aeebec826619b150d37f91a6e1f7dec4f4772a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "1c9d3d1240e95a231b3136f13d93a5c628599ef75e4560363970e0cdf8223b85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d3a40cabe57b7456d236125ccb6ecd55d0a9a89bf0eb34bf5ad4933aaa9c6cbd"
   end
 
   depends_on "groff" => :test
