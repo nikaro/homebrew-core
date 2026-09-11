@@ -6,12 +6,13 @@ class Ovsx < Formula
   license "EPL-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "6238633f47ebc022fec061b1e3de1cf4cad48180804cba241ba6acc0c9664dd7"
-    sha256 cellar: :any, arm64_sequoia: "6238633f47ebc022fec061b1e3de1cf4cad48180804cba241ba6acc0c9664dd7"
-    sha256 cellar: :any, arm64_sonoma:  "6238633f47ebc022fec061b1e3de1cf4cad48180804cba241ba6acc0c9664dd7"
-    sha256 cellar: :any, sonoma:        "a236b31d41994685f933f7363f78514230ad50eb32f247e8a21fc6d1202863a5"
-    sha256 cellar: :any, arm64_linux:   "758cc0389b19b8a74a85ce3bbe2a6e211442fd401fb3dbd913e83e5b31feb93c"
-    sha256 cellar: :any, x86_64_linux:  "7a7093a9a309132aa7c9f775f8244c446f7879837dad5652adfd9fae92bfcf54"
+    sha256 cellar: :any, arm64_golden_gate: "766cb859dfe0338fe44af19861cc2d6dc1e87b35a8428d97fd296215456d20c8"
+    sha256 cellar: :any, arm64_tahoe:       "6238633f47ebc022fec061b1e3de1cf4cad48180804cba241ba6acc0c9664dd7"
+    sha256 cellar: :any, arm64_sequoia:     "6238633f47ebc022fec061b1e3de1cf4cad48180804cba241ba6acc0c9664dd7"
+    sha256 cellar: :any, arm64_sonoma:      "6238633f47ebc022fec061b1e3de1cf4cad48180804cba241ba6acc0c9664dd7"
+    sha256 cellar: :any, sonoma:            "a236b31d41994685f933f7363f78514230ad50eb32f247e8a21fc6d1202863a5"
+    sha256 cellar: :any, arm64_linux:       "758cc0389b19b8a74a85ce3bbe2a6e211442fd401fb3dbd913e83e5b31feb93c"
+    sha256 cellar: :any, x86_64_linux:      "7a7093a9a309132aa7c9f775f8244c446f7879837dad5652adfd9fae92bfcf54"
   end
 
   depends_on "node"
