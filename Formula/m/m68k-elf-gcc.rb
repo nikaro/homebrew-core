@@ -38,8 +38,8 @@ class M68kElfGcc < Formula
                              "--infodir=#{info}/#{target}",
                              "--disable-nls",
                              "--without-headers",
-                             "--with-as=#{Formula["m68k-elf-binutils"].bin}/m68k-elf-as",
-                             "--with-ld=#{Formula["m68k-elf-binutils"].bin}/m68k-elf-ld",
+                             "--with-as=#{formula_opt_bin("m68k-elf-binutils")}/m68k-elf-as",
+                             "--with-ld=#{formula_opt_bin("m68k-elf-binutils")}/m68k-elf-ld",
                              "--enable-languages=c,c++,objc,lto",
                              "--enable-lto",
                              "--with-system-zlib",
@@ -66,6 +66,6 @@ class M68kElfGcc < Formula
     C
     system bin/"m68k-elf-gcc", "-c", "-o", "test-c.o", "test-c.c"
     assert_match "file format elf32-m68k",
-                 shell_output("#{Formula["m68k-elf-binutils"].bin}/m68k-elf-objdump -a test-c.o")
+                 shell_output("#{formula_opt_bin("m68k-elf-binutils")}/m68k-elf-objdump -a test-c.o")
   end
 end
