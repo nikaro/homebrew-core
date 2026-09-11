@@ -32,6 +32,7 @@ class Ronn < Formula
 
   # Fixes "undefined method 'has_rdoc=' for an instance of Gem::Specification"
   # Gemspec was last updated in 2010 and uses deprecated syntax
+  # Accept the array `template_path` returned by mustache 1.1.3 and later
   patch :DATA
 
   def install
@@ -72,3 +73,13 @@ index 973a9b6..5708a9a 100644
    s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Ronn"]
    s.require_paths = %w[lib]
    s.rubygems_version = '1.1.1'
+diff --git a/lib/ronn/template.rb b/lib/ronn/template.rb
+--- a/lib/ronn/template.rb
++++ b/lib/ronn/template.rb
+@@ -7,5 +7,5 @@ module Ronn
+ 
+     def initialize(document, style_path=ENV['RONN_STYLE'].to_s.split(':'))
+       @document = document
+-      @style_path = style_path + [Template.template_path]
++      @style_path = style_path + Array(Template.template_path)
+     end
