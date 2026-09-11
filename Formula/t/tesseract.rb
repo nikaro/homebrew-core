@@ -49,11 +49,6 @@ class Tesseract < Formula
     sha256 "9cf5d576fcc47564f11265841e5ca839001e7e6f38ff7f7aacf46d15a96b00ff"
   end
 
-  resource "snum" do
-    url "https://github.com/USCDataScience/counterfeit-electronics-tesseract/raw/319a6eeacff181dad5c02f3e7a3aff804eaadeca/Training%20Tesseract/snum.traineddata"
-    sha256 "36f772980ff17c66a767f584a0d80bf2302a1afa585c01a226c1863afcea1392"
-  end
-
   def install
     # explicitly state leptonica header location, as the makefile defaults to /usr/local/include,
     # which doesn't work for non-default homebrew location
@@ -71,14 +66,13 @@ class Tesseract < Formula
     # make install in the local share folder to avoid permission errors
     system "make", "install", "training-install", "datarootdir=#{share}"
 
-    resource("snum").stage { mv "snum.traineddata", share/"tessdata" }
     resource("eng").stage { mv "eng.traineddata", share/"tessdata" }
     resource("osd").stage { mv "osd.traineddata", share/"tessdata" }
   end
 
   def caveats
     <<~EOS
-      This formula contains only the "eng", "osd", and "snum" language data files.
+      This formula contains only the "eng" and "osd" language data files.
       If you need any other supported languages, run `brew install tesseract-lang`.
     EOS
   end
