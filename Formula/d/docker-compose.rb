@@ -24,8 +24,6 @@ class DockerCompose < Formula
 
   depends_on "go" => :build
 
-  conflicts_with cask: "docker-desktop"
-
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     ldflags = %W[-X github.com/docker/compose/v#{version.major}/internal.Version=#{version}]
