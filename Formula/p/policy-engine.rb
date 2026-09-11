@@ -7,12 +7,11 @@ class PolicyEngine < Formula
   head "https://github.com/snyk/policy-engine.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f20b6f93b48b346baa7f1408564fcc60cb8b79d98e6032798826cb2e32d7de46"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f20b6f93b48b346baa7f1408564fcc60cb8b79d98e6032798826cb2e32d7de46"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f20b6f93b48b346baa7f1408564fcc60cb8b79d98e6032798826cb2e32d7de46"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5df9371d84b177cb3f092d104c478479166b3d7e8483f04791b7e14b9a84ffd4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "88b4a1806b2fac092963000a3fa88321f5ecafeb56c3f3333f336ffc4b9d80f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cda1bc0e74c78999259e87c915304487ff2d3f29b4919f076f4f28bbc2ba549f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "774b61d471e1c9503f942e6ceeacb465f8056ab74d7ce5da765efb187840c10d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "774b61d471e1c9503f942e6ceeacb465f8056ab74d7ce5da765efb187840c10d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "774b61d471e1c9503f942e6ceeacb465f8056ab74d7ce5da765efb187840c10d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "3a4cc8fe2010bdebc310f29b65329fe392f5cda532a46aa020dfe36aba8522ce"
+    sha256 cellar: :any,                 x86_64_linux:      "97faddec79127a883a1cee481c6355e8a61f9894054a210f2a1b526ff15b96c4"
   end
 
   depends_on "go" => :build
