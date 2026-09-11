@@ -55,7 +55,7 @@ class Picotool < Formula
     # from https://github.com/raspberrypi/pico-examples?tab=readme-ov-file#first-examples
     resource "homebrew-blink_universal" do
       url "https://datasheets.raspberrypi.com/soft/blink_picow.uf2"
-      sha256 "c2171f11f2d6a8a0b139e551c4e729f5ae3dd33625d58f94252ad5f5bef636d1"
+      sha256 "d1e68082a74d3ffac56bc45b1e2df05810704f2cf7b32d2b0e2519b7dffcfee6"
     end
 
     resource("homebrew-blink_universal").stage do
@@ -66,7 +66,7 @@ class Picotool < Formula
          name:          blink_universal
          web site:      https://github.com/raspberrypi/pico-examples/tree/HEAD/universal/blink_universal
          binary start:  0x10000000
-         binary end:    0x10040494
+         binary end:    0x100403e4
       EOS
       assert_equal result, shell_output("#{bin}/picotool info blink_universal.uf2")
     end
