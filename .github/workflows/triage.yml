@@ -173,8 +173,15 @@ jobs:
               content: \n  disable!.*\n
 
             - label: homepage
+              status: modified
               path: Formula/.+
-              patch_content: \n  homepage .+\n
+              patch_content: \n[-+]  homepage .+\n
+              allow_any_match: true
+
+            - label: license
+              status: modified
+              path: Formula/.+
+              patch_content: \n[-+]  license .+\n
               allow_any_match: true
 
             - label: legacy
