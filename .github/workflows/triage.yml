@@ -189,14 +189,6 @@ jobs:
                 - Formula/p/python-gdbm@3.14.rb
                 - Formula/p/python-tk@3.14.rb
 
-            - label: missing license
-              path: Formula/.+
-              missing_content: \n  license .+\n
-
-            - label: deprecated license
-              path: Formula/.+
-              content: license .*"(GPL|LGPL|AGPL|GFDL)-[0-9].[0-9][+]?".*
-
             - label: review no_autobump stanza
               path: Formula/.+
               content: 'no_autobump! because: :requires_manual_review'
