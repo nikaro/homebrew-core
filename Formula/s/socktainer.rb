@@ -7,7 +7,9 @@ class Socktainer < Formula
   head "https://github.com/socktainer/socktainer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "683723cdbfb182aaba934848a889e2839a4847b4117c14b21ad0bb8187fe01e2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "77845a73914bc149ffcafe7924bb153c1b70fac208e33471ad2137ff22bbcf2b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d9be2dfe30df9d468811dfdd5f96043a100ad2a51d0ef6eaf3aa3aea2f44500a"
   end
 
   depends_on xcode: ["26.0", :build]
