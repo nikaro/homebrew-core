@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/cc/87/fd4c72335ff32baab3d20872511c340402772b0ef3f5b00cf8a636d8d387/cfn_lint-1.56.2.tar.gz"
-  sha256 "e2f77cfc378c1991c15bcadfb84db0d69cd8dbcd798376a08b78360179266e48"
+  url "https://files.pythonhosted.org/packages/73/da/e419b9775114b082e089e3856ba64b27ed1d16c100e9bdf09b844ca7ba08/cfn_lint-1.56.3.tar.gz"
+  sha256 "cdca8797e33aad72c2eb94b49cb4b129cd1cd4309f7376c109d4d9446605bf41"
   license "MIT-0"
 
   bottle do
@@ -49,8 +49,8 @@ class CfnLint < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/19/c1/6b30b775c7bcc6cf6506a4d4741c2123e8d99cd50f3fe8cbd731f5fef526/regex-2026.9.3.tar.gz"
-    sha256 "aabd43208e335f4c3f0b56de3464b066dd425983a58f6eeb5738bcd7465403db"
+    url "https://files.pythonhosted.org/packages/b9/5c/f403115361de25809e8f785686ec7096e30fef73be9ae35aa51da4e80abb/regex-2026.9.10.tar.gz"
+    sha256 "1e321e2c84f0e52c457f5ea5944f796d6e8e09cb99738ea98dcc1bfe402a128d"
   end
 
   resource "sympy" do
