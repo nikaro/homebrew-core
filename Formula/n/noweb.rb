@@ -40,7 +40,7 @@ class Noweb < Formula
 
   def install
     # use gnu-sed on macOS for fixing `illegal byte sequence` error
-    ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
+    ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin" if OS.mac?
 
     cd "src" do
       system "bash", "awkname", "awk"
