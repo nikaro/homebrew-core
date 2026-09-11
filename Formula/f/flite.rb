@@ -32,7 +32,7 @@ class Flite < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin" if OS.mac?
+    ENV.prepend_path "PATH", formula_opt_libexec("coreutils")/"gnubin" if OS.mac?
 
     system "./configure", "--disable-silent-rules",
                         "--with-lex",
