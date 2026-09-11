@@ -1,8 +1,8 @@
 class Avrdude < Formula
   desc "Atmel AVR MCU programmer"
   homepage "https://www.nongnu.org/avrdude/"
-  url "https://github.com/avrdudes/avrdude/archive/refs/tags/v8.2.tar.gz"
-  sha256 "72fbe49d3e3ea2f48a750e7f2c16287b163a580e020f745af39d45ba68d9d6ae"
+  url "https://github.com/avrdudes/avrdude/archive/refs/tags/v8.3.tar.gz"
+  sha256 "6c6fe3606f2ef331e502fb9c1d418ba09eb9705e811efbe18259025a9787ee3d"
   license "GPL-2.0-or-later"
   head "https://github.com/avrdudes/avrdude.git", branch: "main"
 
