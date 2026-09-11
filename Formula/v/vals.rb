@@ -7,12 +7,11 @@ class Vals < Formula
   head "https://github.com/helmfile/vals.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "47900c8284ccb9344e73e4b7459fb2dd2412e22ba6d80e44f8ad1695bf1fbc8b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "47900c8284ccb9344e73e4b7459fb2dd2412e22ba6d80e44f8ad1695bf1fbc8b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47900c8284ccb9344e73e4b7459fb2dd2412e22ba6d80e44f8ad1695bf1fbc8b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b820c0999a3b9b7e4bc13929fe1f6083c5387785392e20c4587c8d86d3c774eb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4241000e808aec34f38a0196a74cdb9e802f0423937d61d6171ddbb2f2d4720f"
-    sha256 cellar: :any,                 x86_64_linux:  "8f4c472e82b3a7e3fb8f02fda906b7c4aecf5df488eac983c190e64f0bc830bf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "97bc719e1cb25d3a6baaeef90ba0aea10746c71b903bdbe04e18b7c0d4dae5d6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "97bc719e1cb25d3a6baaeef90ba0aea10746c71b903bdbe04e18b7c0d4dae5d6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "97bc719e1cb25d3a6baaeef90ba0aea10746c71b903bdbe04e18b7c0d4dae5d6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f3d3b0cc04ccbded6e79debba075c9d3dc03eeba5af462feb98ffa32c3733212"
+    sha256 cellar: :any,                 x86_64_linux:      "074f15e0e38a79fe15ae4f3959a351905fb672e729425e576a77e6c5539cc9b0"
   end
 
   depends_on "go" => :build
