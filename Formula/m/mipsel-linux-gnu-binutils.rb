@@ -12,12 +12,13 @@ class MipselLinuxGnuBinutils < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_tahoe:   "94b594f3b82445d2508a7bbbf23c82b7a0de3d61cf9e657a2e9d23913ae2e533"
-    sha256 arm64_sequoia: "8819ec12a0d970f550d30c2689257c63f0eaf47f53d83a428ecb979df4bf4dea"
-    sha256 arm64_sonoma:  "5fc7b613f8aae5059f398bd8f1edf251980eeec047ee8ae0d8355a3f21c34526"
-    sha256 sonoma:        "0b0c8bc1a2c99e12580ae8ac700074383321d163d8558109994c86bcbe6640d4"
-    sha256 arm64_linux:   "3c9dc197b2c8ee65be7102f723e1e5b40f38f5bee7301a5be2fb775868ca7311"
-    sha256 x86_64_linux:  "26d2ae87384660ae92caf7e29292d517452108e0d1f27ec76c0f5d9358ac77da"
+    sha256 arm64_golden_gate: "29975d46bb7bfffb272512c6d7760ff5c2631f50ea8ef59e5cb9edaaf9366c13"
+    sha256 arm64_tahoe:       "94b594f3b82445d2508a7bbbf23c82b7a0de3d61cf9e657a2e9d23913ae2e533"
+    sha256 arm64_sequoia:     "8819ec12a0d970f550d30c2689257c63f0eaf47f53d83a428ecb979df4bf4dea"
+    sha256 arm64_sonoma:      "5fc7b613f8aae5059f398bd8f1edf251980eeec047ee8ae0d8355a3f21c34526"
+    sha256 sonoma:            "0b0c8bc1a2c99e12580ae8ac700074383321d163d8558109994c86bcbe6640d4"
+    sha256 arm64_linux:       "3c9dc197b2c8ee65be7102f723e1e5b40f38f5bee7301a5be2fb775868ca7311"
+    sha256 x86_64_linux:      "26d2ae87384660ae92caf7e29292d517452108e0d1f27ec76c0f5d9358ac77da"
   end
 
   depends_on "pkgconf" => :build
