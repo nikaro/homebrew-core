@@ -27,6 +27,12 @@ class Xqilla < Formula
   def install
     ENV.cxx11
 
+    # error: no matching function for call to object of type 'const UniqueNodesResult::uniqueLessThanCompareFn'
+    # Submitted upstream at https://sourceforge.net/p/xqilla/bugs/57/
+    inreplace "include/xqilla/ast/XQDocumentOrder.hpp",
+              "bool operator()(const Node::Ptr &first, const Node::Ptr &second)",
+              "bool operator()(const Node::Ptr &first, const Node::Ptr &second) const"
+
     args = []
     # Help old config scripts identify arm64 linux
     args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
