@@ -27,8 +27,6 @@ class CodeCli < Formula
     depends_on "zlib-ng-compat"
   end
 
-  conflicts_with cask: "visual-studio-code"
-
   def openssl = Formula["openssl@4"]
 
   def install
