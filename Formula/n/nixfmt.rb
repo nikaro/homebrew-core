@@ -7,13 +7,11 @@ class Nixfmt < Formula
   head "https://github.com/NixOS/nixfmt.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "4bc09a889be21bf50d21f90c065343ce9abff3a16dc8bc557081d8c4dbe2a602"
-    sha256 cellar: :any, arm64_sequoia: "2f1714d3e95253b5db0e7e1e5e94726bfc31c91a503bc6261a116a89718b4cbd"
-    sha256 cellar: :any, arm64_sonoma:  "af3e982c8b8ebc1b5474ca52df344372890769e7224905b1610ae4b54a0a25dd"
-    sha256 cellar: :any, sonoma:        "d01d0fc1833770942c10b5172ce7a2d1b2f66bebce73894dd39a87959435bebd"
-    sha256 cellar: :any, arm64_linux:   "d312a7c5343d059110ad5c2cd53665ca6251a193bbefb638acb6b39fd9f28b88"
-    sha256 cellar: :any, x86_64_linux:  "bbab822b83c7aa333ad74c8b9965dfeb8f1eda3fd7fa30415ba097a435e849aa"
+    sha256 cellar: :any, arm64_golden_gate: "460e32c76bd3980229c081e9ab5978a62665a75e47169003673be1a0b3833c38"
+    sha256 cellar: :any, arm64_tahoe:       "f2bc27a6028ced72ce3c017931fa619175eccfce5c34e2d35b71e030e3e35140"
+    sha256 cellar: :any, arm64_sequoia:     "46e7efed8d5f8ede09cf847f026dc7608ffbdea6b58c5b9e07b68b3fbe31813f"
+    sha256 cellar: :any, arm64_linux:       "8013f77d820a6647214be0042789f615cbf822128961e6b58c32a2284ccec23d"
+    sha256 cellar: :any, x86_64_linux:      "9163b4c9f0283e565d60593ff3b16ce798c411761ef83e717c58d2316a462929"
   end
 
   depends_on "cabal-install" => :build
