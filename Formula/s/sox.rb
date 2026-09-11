@@ -42,10 +42,9 @@ class Sox < Formula
   # Applies Eric Wong's patch to fix device name length in MacOS.
   # This patch has been in a "potential updates" branch since 2016.
   # There is nothing to indicate when, if ever, it will or will not make it
-  # into the main branch, unfortunately.
+  # into the main branch, unfortunately. Vendored as 80x24.org no longer serves it.
   patch do
-    url "https://80x24.org/sox.git/patch?id=bf2afa54a7dec"
-    sha256 "0cebb3d4c926a2cf0a506d2cd62576c29308baa307df36fddf7c6ae4b48df8e7"
+    file "Patches/sox/coreaudio-device-name.patch"
     type :unofficial
   end
 
