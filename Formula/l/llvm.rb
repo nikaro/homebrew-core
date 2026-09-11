@@ -16,6 +16,14 @@ class Llvm < Formula
       type :unofficial
       resolves "https://github.com/llvm/llvm-project/pull/111397"
     end
+
+    # Backport fix for macOS 27 SDK
+    patch do
+      url "https://github.com/llvm/llvm-project/commit/b8007a8e4020b8bca2b12e941660e10bf5bf6716.patch?full_index=1"
+      sha256 "e41e300eb6f5cca9172ab344e572c3fb24f0d05885ae23dd7cb4f9c2528839f7"
+      type :backport
+      resolves "https://github.com/llvm/llvm-project/pull/222721"
+    end
   end
 
   livecheck do
@@ -55,9 +63,7 @@ class Llvm < Formula
     depends_on "zlib-ng-compat"
   end
 
-  def clang_config_file_dir
-    etc/"clang"
-  end
+  def clang_config_file_dir = etc/"clang"
 
   def install
     # The clang bindings need a little help finding keg-only libclang.
@@ -228,10 +234,10 @@ class Llvm < Formula
 
       # We build the basic parts of a toolchain to profile.
       # The extra targets on macOS are part of a default Compiler-RT build.
-      extra_args = [
-        "-DLLVM_TARGETS_TO_BUILD=Native#{";AArch64;ARM;X86" if OS.mac?}",
-        "-DLLVM_ENABLE_PROJECTS=clang;lld",
-        "-DLLVM_ENABLE_RUNTIMES=compiler-rt",
+      extra_args = %W[
+        -DLLVM_TARGETS_TO_BUILD=Native#{";AArch64;ARM;X86" if OS.mac?}
+        -DLLVM_ENABLE_PROJECTS=clang;lld
+        -DLLVM_ENABLE_RUNTIMES=compiler-rt
       ]
 
       # Our stage1 compiler includes the minimum necessary to bootstrap.
@@ -377,11 +383,9 @@ class Llvm < Formula
     end
 
     # Now, we can build.
-    mkdir llvmpath/"build" do
-      system "cmake", "-G", "Ninja", "..", *(std_cmake_args + args)
-      system "cmake", "--build", "."
-      system "cmake", "--build", ".", "--target", "install"
-    end
+    system "cmake", "-S", llvmpath, "-B", "build", "-G", "Ninja", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--build", "build", "--target", "install"
 
     clang_config_file_dir.mkpath
     touch clang_config_file_dir/".keepme"
