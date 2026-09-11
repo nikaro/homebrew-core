@@ -27,6 +27,7 @@ class Juliaup < Formula
   def install
     system "cargo", "install", "--bin", "juliaup", *std_cargo_args
     system "cargo", "install", "--bin", "julialauncher", *std_cargo_args(features: "binjulialauncher")
+    system "cargo", "install", *std_cargo_args(path: "juliaupgui")
 
     bin.install_symlink "julialauncher" => "julia"
 
@@ -36,5 +37,6 @@ class Juliaup < Formula
   test do
     expected = "Default  Channel  Version  Update"
     assert_equal expected, shell_output("#{bin}/juliaup status").lines.first.strip
+    assert_path_exists bin/"juliaupgui"
   end
 end
