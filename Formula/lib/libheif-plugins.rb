@@ -65,7 +65,7 @@ class LibheifPlugins < Formula
   end
 
   test do
-    libheif_bin = Formula["libheif"].bin
+    libheif_bin = formula_opt_bin("libheif")
     decoders = shell_output("#{libheif_bin}/heif-dec --list-decoders")
     encoders = shell_output("#{libheif_bin}/heif-enc --list-encoders")
 
