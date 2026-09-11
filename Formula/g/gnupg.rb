@@ -48,11 +48,6 @@ class Gnupg < Formula
     depends_on "zlib-ng-compat"
   end
 
-  conflicts_with cask: "gpg-suite"
-  conflicts_with cask: "gpg-suite-no-mail"
-  conflicts_with cask: "gpg-suite-pinentry"
-  conflicts_with cask: "gpg-suite@nightly"
-
   def install
     libusb = Formula["libusb"]
     ENV.append "CPPFLAGS", "-I#{libusb.opt_include}/libusb-#{libusb.version.major_minor}"
