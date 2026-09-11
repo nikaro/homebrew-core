@@ -94,6 +94,8 @@ class Cvs < Formula
 
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
+    # C23 makes `()` mean `(void)`, breaking K&R-style handler calls in lib/sighandle.c
+    ENV.append_to_cflags "-std=gnu17"
 
     system "./configure", "--infodir=#{info}",
                           "--mandir=#{man}",
