@@ -40,6 +40,9 @@ class Gts < Formula
   patch :DATA
 
   def install
+    # GTS uses K&R function definitions, which C23 no longer supports.
+    ENV.append "CFLAGS", "-std=gnu17"
+
     # The `configure` passes `-flat_namespace` but none of our usual patches apply.
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
