@@ -103,7 +103,7 @@ class Libgoa < Formula
 
     ENV["XDG_DATA_DIRS"] = testpath # avoid loading system dbus services
     ENV["DBUS_SESSION_BUS_ADDRESS"] = address = "unix:path=#{testpath}/bus"
-    pid = spawn(Formula["dbus"].bin/"dbus-daemon", "--session", "--nofork", "--address=#{address}")
+    pid = spawn(formula_opt_bin("dbus")/"dbus-daemon", "--session", "--nofork", "--address=#{address}")
     sleep 2
     system ENV.cc, "test.c", "-o", "test", *shell_output("pkgconf --cflags --libs goa-1.0").chomp.split
     system "./test"
