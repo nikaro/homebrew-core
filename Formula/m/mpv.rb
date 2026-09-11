@@ -71,8 +71,6 @@ class Mpv < Formula
     depends_on "zlib-ng-compat"
   end
 
-  conflicts_with cask: "stolendata-mpv", because: "both install `mpv` binaries"
-
   def install
     args = %W[
       --sysconfdir=#{etc}
