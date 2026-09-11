@@ -6,7 +6,7 @@ class Amy < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "feddbbde03c64fb7ce2d9606c69fcd582f52ba467f209be73b27b80df4592f54"
+    sha256 cellar: :any_skip_relocation, all: "1c8e3748e945a8312c0944f7fea0c6fac743fe78106ffef65f167ee2932e8b36"
   end
 
   depends_on "openjdk"
