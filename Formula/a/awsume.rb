@@ -10,11 +10,6 @@ class Awsume < Formula
   revision 1
   head "https://github.com/trek10inc/awsume.git", branch: "master"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "912c294f4270cad32ba129a55ad7de6f297a22fcc7af22a62eddeacf4b6e2d46"
     sha256 cellar: :any,                 arm64_sequoia: "85513d3816f52eb95a95979227e54763f8f8c977c29910155f41d80169481dcc"
