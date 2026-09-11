@@ -1,8 +1,8 @@
 class Syswatch < Formula
   desc "Cross-platform system diagnostics TUI"
   homepage "https://www.netwatchlabs.com/labs/syswatch"
-  url "https://github.com/matthart1983/syswatch/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "2d8086cf67b3a5cf661d2c2ee552e29c40a1f46b655170360d9f8aae9cd097e8"
+  url "https://github.com/matthart1983/syswatch/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "86b3b897573b2e7a6772f508be1ff10a2efe2fb591d666ffd5aa182ba55e64cc"
   license "MIT"
 
   bottle do
@@ -36,7 +36,7 @@ class Syswatch < Formula
       Process.kill("TERM", wait_thr.pid)
     end
 
-    screenlog = (testpath/"screenlog.txt").read
+    screenlog = (testpath/"screenlog.txt").read.scrub
     assert_match "Services", screenlog
     # match text in help dialog
     assert_match "Procs tab", screenlog
