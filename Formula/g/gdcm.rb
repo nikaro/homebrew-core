@@ -38,6 +38,14 @@ class Gdcm < Formula
     depends_on "zlib-ng-compat"
   end
 
+  # Fix build with SWIG 4.5.0+ which removed Python 2 compatibility macros
+  patch do
+    url "https://github.com/malaterre/GDCM/commit/5ebde0b55256142fbfe1b86f010109144ed35251.patch?full_index=1"
+    sha256 "40165c0b18539f9b68956fd1cb17dd7566b4282472facf843c32c1f28fe6d792"
+    type :unofficial
+    resolves "https://github.com/malaterre/GDCM/pull/232"
+  end
+
   def install
     xy = Language::Python.major_minor_version python3
     python_include = if OS.mac?
