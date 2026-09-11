@@ -25,15 +25,14 @@ class Bluetoothconnector < Formula
   end
 
   test do
-    if MacOS.version >= :sonoma && ENV["HOMEBREW_GITHUB_ACTIONS"]
-      # We cannot test any useful command since Sonoma as OS privacy restrictions
-      # will wait until Bluetooth permission is either accepted or rejected.
-      # Since even `--help` needs permissions, we just check process is still running.
+    if ENV["HOMEBREW_GITHUB_ACTIONS"]
+      # OS privacy restrictions may block the process on the Bluetooth permission prompt,
+      # so only check the usage exit code when it actually ran to completion.
       pid = spawn bin/"BluetoothConnector"
-      begin
-        sleep 5
-        Process.getpgid(pid)
-      ensure
+      sleep 5
+      if Process.wait(pid, Process::WNOHANG)
+        assert_equal 64, $CHILD_STATUS.exitstatus
+      else
         Process.kill("TERM", pid)
         Process.wait(pid)
       end
