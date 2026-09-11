@@ -59,7 +59,9 @@ class WasiLibc < Formula
     end
   end
 
-  deny_network_access!
+  # needs to download resources in the `test` block
+  # FIXME: `brew` should know to download test resources before sandboxing.
+  allow_network_access! :test
 
   def wasi_sdk_targets
     # See targets at: https://github.com/WebAssembly/wasi-sdk/blob/wasi-sdk-34/CMakeLists.txt#L14
