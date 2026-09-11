@@ -38,10 +38,6 @@ class Emacs < Formula
     depends_on "zlib-ng-compat"
   end
 
-  conflicts_with cask: "emacs-app"
-  conflicts_with cask: "emacs-app@nightly"
-  conflicts_with cask: "emacs-app@pretest"
-
   def install
     args = %W[
       --disable-acl
