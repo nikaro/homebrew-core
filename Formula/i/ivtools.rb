@@ -30,6 +30,14 @@ class Ivtools < Formula
     end
   end
 
+  # Drop the vendored libc++ `fstream` copy that macOS 27 SDK rejects as a redefinition of `basic_filebuf`
+  patch do
+    url "https://github.com/vectaport/ivtools/commit/df902bfd4bdf883455e65f3a251817193636e42b.patch?full_index=1"
+    sha256 "e8a3cff8f5f8630634675d9acce44e11a7687c8e99bc99e85d3016879cc0f7f2"
+    type :backport
+    resolves "https://github.com/vectaport/ivtools/commit/df902bfd4bdf883455e65f3a251817193636e42b"
+  end
+
   # Fix to error: unknown type name '_LIBCPP_INLINE_VISIBILITY' and '_VSTD'
   patch do
     url "https://github.com/vectaport/ivtools/commit/6c4f2afb11d76fc34fb918c2ba53c4c4c5db55ae.patch?full_index=1"
