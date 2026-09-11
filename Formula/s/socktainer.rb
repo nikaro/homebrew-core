@@ -18,7 +18,7 @@ class Socktainer < Formula
   uses_from_macos "swift" => :build
 
   def install
-    with_env(BUILD_VERSION: version) do
+    with_env(BUILD_VERSION: version.to_s) do
       system "swift", "build", *std_swift_args
     end
     bin.install ".build/release/socktainer"
