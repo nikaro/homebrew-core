@@ -27,6 +27,14 @@ class Dbcsr < Formula
     depends_on "libomp"
   end
 
+  # Export C API from PRIVATE modules, hidden by gfortran 16.2 (GCC PR126872)
+  patch do
+    url "https://github.com/cp2k/dbcsr/commit/a5d9bcfcd487e3181b981687334da1b89bc61dce.patch?full_index=1"
+    sha256 "c0f0f43eb108e12076079cbe59d0a9afe486f729bcfb94f4c61b721e093018fc"
+    type :backport
+    resolves "https://github.com/cp2k/dbcsr/pull/1027"
+  end
+
   def install
     rm_r("tools/build_utils/fypp")
 
