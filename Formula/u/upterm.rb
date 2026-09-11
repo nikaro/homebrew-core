@@ -7,11 +7,11 @@ class Upterm < Formula
   head "https://github.com/owenthereal/upterm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "53bd9afb62ce1caf97495a6ef83d4de677737275613a8875a644e14d66334d46"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d65670104e207b8b3f94e00654db3480479a39d4be94abc78e1f967be7632c88"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "99b485d8554f2959d5c5e0eed6532acb861e8ffdd33a781670a25c2baecae2d8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9127f35d620920c2034d7536ab0312320fbfeafed353469347f09c2ef4a2266f"
-    sha256 cellar: :any,                 x86_64_linux:  "ae16689cd24c9db78ce8822ae784c247c19ba07882db8b225819a1714a08d4ec"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a098adc09cdac17542091de620e62488bd3c1ecb2fb18c95d59acf903cad0b1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b62c6e7245a0752d201607568101a2739114a130d26fc0ce1d20c332ff9d958a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3986346a3ec785ab646a9fc2aacc7753e324268977b357b1e8e6aa67088b79ad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "9947b98929ab9625fec51f135dada2e7600ffeed812ce067a42c02d9ab6eee2b"
+    sha256 cellar: :any,                 x86_64_linux:      "aa18a1d6e0cc21fc7d2fde94fe82e5795f24604cfe86aa693ebf3622e6a2f881"
   end
 
   depends_on "go" => :build
