@@ -20,14 +20,16 @@ class Yajl < Formula
   # Upstream is unmaintained so we use Debian patches to fix CVEs and other
   # issues while formula is still used by non-deprecated dependents.
   patch do
-    url "https://deb.debian.org/debian/pool/main/y/yajl/yajl_2.1.0-6.debian.tar.xz"
-    sha256 "462fb384bef46c7252001c609dabc126624a1b71e9597cc16827d25a0226453f"
+    url "https://deb.debian.org/debian/pool/main/y/yajl/yajl_2.1.0-7.debian.tar.xz"
+    mirror "https://snapshot.debian.org/archive/debian/20260901T022952Z/pool/main/y/yajl/yajl_2.1.0-7.debian.tar.xz"
+    sha256 "9196bd56b2a806d1b9794892dc47e994e5d76feee7a8208ee11d541b7421be78"
     type :unofficial
     apply "patches/dynamically-link-tools.patch",
           "patches/CVE-2017-16516.patch",
           "patches/CVE-2022-24795.patch",
           "patches/CVE-2023-33460.patch",
-          "patches/6fe59ca50dfd65bdb3d1c87a27245b2dd1a072f9.patch" # cmake 4
+          "patches/6fe59ca50dfd65bdb3d1c87a27245b2dd1a072f9.patch", # cmake 4
+          "patches/non-gcc-visibility-check.patch"
   end
 
   def install
