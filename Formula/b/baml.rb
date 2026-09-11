@@ -1,8 +1,8 @@
 class Baml < Formula
   desc "Programming language for agents"
   homepage "https://boundaryml.com/"
-  url "https://github.com/BoundaryML/baml/archive/refs/tags/baml-wrapper-0.2.4.tar.gz"
-  sha256 "9096895f1f48ef2f483766ad1b9915a1b0ba79b5f9e9d45ab46804bd46765add"
+  url "https://github.com/BoundaryML/baml/archive/refs/tags/baml-wrapper-0.2.5.tar.gz"
+  sha256 "f1539402dfeb4cfd6b4b14f4b21e5b290eb6fb23c965f61e0e5757570333f73d"
   license "Apache-2.0"
   head "https://github.com/BoundaryML/baml.git", branch: "canary"
 
