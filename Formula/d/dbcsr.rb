@@ -7,12 +7,12 @@ class Dbcsr < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "c5798454cbb086db2eb403c97e99e4ca0e1ad983cc681af0e79b27ed2acbd2b9"
-    sha256 cellar: :any, arm64_sequoia: "b1c5d55767155b2079b91757aa030e8ff1c80afe2e7ab6dcaa34fd472c6bb1b6"
-    sha256 cellar: :any, arm64_sonoma:  "9d6310a8cb87492dee2e34d86d174d46d219a19873d62fe483ecbcf5572b98b6"
-    sha256 cellar: :any, sonoma:        "a43110decec753e33f4c1ee54d0f5d27b08e61c43e75aaf5d3d76e41a3ac76ca"
-    sha256 cellar: :any, arm64_linux:   "637d0f8cb9bd89c311c1c3715ba6cff6d9476e7e870eba5caef96ad35fac1d31"
-    sha256 cellar: :any, x86_64_linux:  "8ccb25d53cd0fc7d0c6758a4271cd2f75994ab6f10ad288303c6e30ed49faf6a"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "24e1669b0c5787d34b3be316f0ce4225023dc5c2c0b99d05c738ff95fac9c99c"
+    sha256 cellar: :any, arm64_tahoe:       "c4cb0c2df34a6a58232b42b9f8d3a45b41ffb2bdd64fa9a2d8c4dd4b5e3dd751"
+    sha256 cellar: :any, arm64_sequoia:     "08dc2f7403b390e6075f787418dec44ee36715b8969800f0b67a5f1dba529e7e"
+    sha256 cellar: :any, arm64_linux:       "cc96409550cbbefd6e5aa54745fdb572c8dfa0563c48b84f7147d52916db8391"
+    sha256 cellar: :any, x86_64_linux:      "117e28b08638f6f6b4ebd9cc12fc04d94856bd03b6d5bb390acb4f6f249933fd"
   end
 
   depends_on "cmake" => [:build, :test]
