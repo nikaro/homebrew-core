@@ -81,6 +81,9 @@ class Gtkx3 < Formula
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration"
+
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
