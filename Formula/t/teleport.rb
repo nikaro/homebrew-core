@@ -61,7 +61,7 @@ class Teleport < Formula
       managePackageManagerVersions: false
     YAML
 
-    ENV.prepend_path "PATH", Formula["rustup"].bin
+    ENV.prepend_path "PATH", formula_opt_bin("rustup")
     system "rustup", "set", "profile", "minimal"
     system "rustup", "default", "stable"
 
