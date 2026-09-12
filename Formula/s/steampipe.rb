@@ -12,12 +12,11 @@ class Steampipe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "74a6c85762486e7ec3f898883f9d51112a0c9b0a7267a6de6540e245c887e0c7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c5e4b0f5ac600d37c3f4d001e0c10c05ae9d8ffdc445d72cf3dcc5caa281043"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49a56d1f8864c1fb904325c7e4e15cf1b456b458c15edec0a37b472340ccb9c1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eb6b92f0504e3b70cc2c8cdbdb51fd523f80ef710d3b3819769cc2ee8bba05f2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ceba844b2ecdbefa8ca589e3eba763f1bb455adfe8c07ef3d7c6dd7fe9c117a"
-    sha256 cellar: :any,                 x86_64_linux:  "c6e2493c0daad1635013673008831439d041317461d97fe95efc5e1c49b6246f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b444d07e72928db3020117ed2bb67d205ba99b6b075b44ae0076ab0833f0cd04"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "704b284ee66f3c2b4e814dc638a47c9b611a5cc43577aeabca6260ca9bef55f4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49bd2ca54ee8f7bacb8f19b7874c1f094d1a70047cd20039cf033003da014932"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f6638a5a6b240261092e961dfd9d78cba9ad8fef1d3a9e1e6dadff2bef17c213"
+    sha256 cellar: :any,                 x86_64_linux:  "602cfc8a1cfb16c4d94d8e5ee798d2a54bb2c4425cbd9dc9070606d4808042f8"
   end
 
   depends_on "go" => :build
