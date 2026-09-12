@@ -1,8 +1,8 @@
 class Amy < Formula
   desc "Nostr client from the Amethyst project"
   homepage "https://github.com/vitorpamplona/amethyst"
-  url "https://github.com/vitorpamplona/amethyst/releases/download/v1.15.0/amy-1.15.0-jvm.tar.gz"
-  sha256 "3c817236f88d5a0bd3f2c0397c429c6c77b00d0d5e602f2d67885cc78d134f04"
+  url "https://github.com/vitorpamplona/amethyst/releases/download/v1.15.1/amy-1.15.1-jvm.tar.gz"
+  sha256 "1d23620575397a56ca47f052f5551b737e6da084bc62277aed32ec29f86a63fe"
   license "MIT"
 
   bottle do
