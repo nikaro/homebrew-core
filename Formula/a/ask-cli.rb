@@ -23,6 +23,9 @@ class AskCli < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.write_exec_script libexec/"bin/ask"
+
+    node_modules = libexec/"lib/node_modules/ask-cli/node_modules"
+    deuniversalize_machos node_modules/"fsevents/fsevents.node" if OS.mac?
   end
 
   test do
