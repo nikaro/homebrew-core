@@ -25,14 +25,19 @@ class Librespot < Formula
 
   on_linux do
     depends_on "alsa-lib"
-    depends_on "avahi"
+    depends_on "openssl@3" # https://github.com/librespot-org/librespot/pull/1707
   end
 
   def install
-    ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path.to_s if OS.mac?
+    if OS.mac?
+      ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path.to_s
+      args = %w[--no-default-features]
+      # We use `with-dns-sd` on macOS since system Bonjour can be used.
+      # Linux requires Avahi which isn't well maintained so better to use libmdns.
+      features = %w[native-tls rodio-backend with-dns-sd]
+    end
 
-    features = %w[rodio-backend with-dns-sd rustls-tls-native-roots]
-    system "cargo", "install", "--no-default-features", *std_cargo_args(features:)
+    system "cargo", "install", *args, *std_cargo_args(features:)
   end
 
   test do
