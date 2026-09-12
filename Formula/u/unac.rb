@@ -50,6 +50,8 @@ class Unac < Formula
   end
 
   def install
+    # C23 makes `()` mean `(void)`, so the bundled getopt.h conflicts with unistd.h
+    ENV.append_to_cflags "-std=gnu17"
     ENV.append_path "ACLOCAL_PATH", Formula["gettext"].pkgshare/"m4"
 
     touch "config.rpath"
