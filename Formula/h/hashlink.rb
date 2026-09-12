@@ -15,6 +15,8 @@ class Hashlink < Formula
     sha256 cellar: :any, x86_64_linux:  "d4983f2cbe53b940c32c193ed345d1f07d226746a0f43db3ea4cd719769d7763"
   end
 
+  deprecate! date: "2027-03-31", because: "needs deprecated `haxe` which needs EOL `mbedtls@3`"
+
   depends_on "pkgconf" => :build
   depends_on "haxe" => :test
   depends_on "jpeg-turbo"
