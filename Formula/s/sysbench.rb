@@ -29,6 +29,8 @@ class Sysbench < Formula
   uses_from_macos "vim" # needed for xxd
 
   def install
+    # C23 rejects the K&R-style function definitions in the bundled crc32.c
+    ENV.append_to_cflags "-std=gnu17"
     system "./autogen.sh"
     system "./configure", "--with-mysql", "--with-pgsql", "--with-system-luajit", *std_configure_args
     system "make", "install"
