@@ -30,6 +30,9 @@ class Mhash < Formula
   depends_on "libtool" => :build
 
   def install
+    # keygen.c:29:16: error: conflicting types for 'mhash_keygen_uses_hash_algorithm'
+    ENV.append "CFLAGS", "-std=gnu17" if DevelopmentTools.clang_build_version >= 1700
+
     # Regenerate the very old configure script that isn't suitable for modern macOS.
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
