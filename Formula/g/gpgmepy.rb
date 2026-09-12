@@ -12,12 +12,11 @@ class Gpgmepy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f21cfcd0bfbe06c868c45a70af197e336567098acbdf5cfe3c63197565eaab2f"
-    sha256 cellar: :any,                 arm64_sequoia: "e039368da6c31b0a4ce537e16e2183386025d513698a5f38b5ed88f6756feefd"
-    sha256 cellar: :any,                 arm64_sonoma:  "6deed958494152e14d81aaa09da8a0988619712d47aea78a12acb3f4b765fbb7"
-    sha256 cellar: :any,                 sonoma:        "7953997037c8aaa348df99bd4d38f8338f78ffb5bb884dd5b401cff56a59583e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f15297aab49987be773de7612b691c49f214ab2b0db01a123e8aa15d06f97872"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7df957ddc15a4b7d2c3b26868e8371b60363b2417e4b990eef4dcfd80b572f88"
+    sha256 cellar: :any, arm64_golden_gate: "2ff17284d52de5b8b7ef1c0f09c69cf1432ff8e87b78b405af9e8494aef5e147"
+    sha256 cellar: :any, arm64_tahoe:       "6a62d45faaebb843bdbf0d0590e807cf16e4a29b2b8043488aab060a4b95d044"
+    sha256 cellar: :any, arm64_sequoia:     "2417e9baa9e54f67032b1b1c418961b3e53ecb2a08d7d7c4d98e788a10cbff97"
+    sha256 cellar: :any, arm64_linux:       "4c49be7b78d49b12275ae9b5c848d5466bb3d347e7dde717aace10813d5d0c34"
+    sha256 cellar: :any, x86_64_linux:      "9a583f4914ffc342e51d6e57d80e976366853a49444730f6ab148e9ad71a431e"
   end
 
   depends_on "autoconf" => :build
