@@ -50,13 +50,9 @@ class Libblastrampoline < Formula
     system ENV.cc, "dgemm_test.c", "-I#{include}", "-L#{lib}", "-lblastrampoline", "-o", "dgemm_test"
     system ENV.cc, "api_test.c", "-I#{include}", "-L#{lib}", "-lblastrampoline", "-o", "api_test"
 
-    test_libs = [shared_library("libopenblas64_")]
-    if OS.mac?
-      test_libs << "/System/Library/Frameworks/Accelerate.framework/Accelerate"
-      ENV["DYLD_LIBRARY_PATH"] = formula_opt_lib("openblas64").to_s
-    else
-      ENV["LD_LIBRARY_PATH"] = formula_opt_lib("openblas64").to_s
-    end
+    # Full path as `shell_output` runs via SIP-protected `/bin/sh` which strips `DYLD_*`
+    test_libs = [(formula_opt_lib("openblas64")/shared_library("libopenblas64_")).to_s]
+    test_libs << "/System/Library/Frameworks/Accelerate.framework/Accelerate" if OS.mac?
 
     test_libs.each do |test_lib|
       with_env(LBT_DEFAULT_LIBS: test_lib) do
