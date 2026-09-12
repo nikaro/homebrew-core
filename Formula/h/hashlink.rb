@@ -22,7 +22,7 @@ class Hashlink < Formula
   depends_on "libpng"
   depends_on "libuv"
   depends_on "libvorbis"
-  depends_on "mbedtls@3"
+  depends_on "mbedtls"
   depends_on "openal-soft"
   depends_on "sdl3"
 
