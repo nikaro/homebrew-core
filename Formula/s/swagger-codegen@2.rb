@@ -29,7 +29,9 @@ class SwaggerCodegenAT2 < Formula
     java_version = "21"
     ENV["JAVA_HOME"] = Language::Java.java_home(java_version)
 
-    system "mvn", "clean", "package"
+    # Only build the CLI: the `swagger-generator` webapp fetches a since-renamed `swagger-ui` branch at build
+    # time, and the tests need a JVM attach socket that the build sandbox denies
+    system "mvn", "clean", "package", "-DskipTests", "-pl", "modules/swagger-codegen-cli", "-am"
     libexec.install "modules/swagger-codegen-cli/target/swagger-codegen-cli.jar"
     bin.write_jar_script(libexec/"swagger-codegen-cli.jar", "swagger-codegen", java_version:)
   end
