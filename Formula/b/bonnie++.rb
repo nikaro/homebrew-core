@@ -30,7 +30,7 @@ class Bonniexx < Formula
   # also incorrectly tests for it in the first place. The ideal fix would be to
   # replace the AC_TRY_RUN() in configure.in if the fail code actually worked.
   patch do
-    file "Patches/bonnie%2B%2B/remove-large-file-support-macros.diff"
+    file "Patches/bonnie++/remove-large-file-support-macros.diff"
     type :unofficial
   end
 
