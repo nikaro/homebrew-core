@@ -173,8 +173,15 @@ jobs:
               content: \n  disable!.*\n
 
             - label: homepage
+              status: modified
               path: Formula/.+
-              patch_content: \n  homepage .+\n
+              patch_content: \n[-+]  homepage .+\n
+              allow_any_match: true
+
+            - label: license
+              status: modified
+              path: Formula/.+
+              patch_content: \n[-+]  license .+\n
               allow_any_match: true
 
             - label: legacy
@@ -188,14 +195,6 @@ jobs:
                 - Formula/p/python@3.14.rb
                 - Formula/p/python-gdbm@3.14.rb
                 - Formula/p/python-tk@3.14.rb
-
-            - label: missing license
-              path: Formula/.+
-              missing_content: \n  license .+\n
-
-            - label: deprecated license
-              path: Formula/.+
-              content: license .*"(GPL|LGPL|AGPL|GFDL)-[0-9].[0-9][+]?".*
 
             - label: review no_autobump stanza
               path: Formula/.+
@@ -335,14 +334,12 @@ jobs:
                 boost|\
                 cmake|\
                 freetype|\
-                gcc|\
                 gtk\\+3|\
                 jpeg-turbo|\
                 libpng|\
                 node|\
                 pango|\
                 pcre2|\
-                qtbase|\
                 readline|\
                 zstd\
                 ).rb"
