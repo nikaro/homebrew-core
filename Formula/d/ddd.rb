@@ -54,7 +54,7 @@ class Ddd < Formula
 
   def install
     # Use GNU sed due to ./unumlaut.sed: RE error: illegal byte sequence
-    ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
+    ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin" if OS.mac?
 
     # Help configure find freetype headers
     ENV.append_to_cflags "-I#{formula_opt_include("freetype")}/freetype2"

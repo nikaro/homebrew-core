@@ -56,7 +56,7 @@ class FileRoller < Formula
     pids = []
     if OS.linux?
       IO.pipe do |read_io, write_io|
-        pids << spawn(Formula["xorg-server"].bin/"Xvfb", "-displayfd", write_io.fileno.to_s, write_io => write_io)
+        pids << spawn(formula_opt_bin("xorg-server")/"Xvfb", "-displayfd", write_io.fileno.to_s, write_io => write_io)
         write_io.close
         ENV["DISPLAY"] = ":#{read_io.read.strip}"
       end

@@ -51,7 +51,7 @@ class Wget2 < Formula
 
   def install
     # The pattern used in 'docs/wget2_md2man.sh.in' doesn't work with system sed
-    ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
+    ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin" if OS.mac?
 
     lzlib = Formula["lzlib"]
     ENV.append "LZIP_CFLAGS", "-I#{lzlib.include}"
