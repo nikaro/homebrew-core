@@ -4,7 +4,7 @@ class Gpgmepy < Formula
   url "https://gnupg.org/ftp/gcrypt/gpgmepy/gpgmepy-2.0.0.tar.bz2"
   sha256 "07e1265648ff51da238c9af7a18b3f1dc7b0c66b4f21a72f27c74b396cd3336d"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpgmepy/"
@@ -27,6 +27,14 @@ class Gpgmepy < Formula
   depends_on "swig" => :build
   depends_on "gpgme"
   depends_on "libgpg-error"
+
+  # Fix build with SWIG 4.5, which dropped the Python 2 compat macros the typemaps still use
+  patch do
+    url "https://sources.debian.org/data/main/g/gpgmepy/2.0.0-3/debian/patches/0030-build-with-swig-4.5.0.patch"
+    sha256 "71e1a543ee8d22b2a62d5dd7b5d7095c53f20271b17f06dd413e7c6b9bb34772"
+    type :unofficial
+    resolves "https://bugs.debian.org/1145351"
+  end
 
   def install
     # Use pip over executing setup.py, which installs a deprecated egg distribution
