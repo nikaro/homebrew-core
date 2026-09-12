@@ -45,7 +45,8 @@ class Zmap < Formula
   end
 
   test do
-    output = shell_output("#{sbin}/zmap -p 80 -N 1 8.8.8.8 2>&1", 1)
+    # Pass a gateway MAC so the test does not depend on the host's ARP table
+    output = shell_output("#{sbin}/zmap -p 80 -N 1 -G 00:11:22:33:44:55 8.8.8.8 2>&1", 1)
     assert_match "[INFO] zmap: By default, ZMap will output the unique IP addresses " \
                  "of hosts that respond successfully (e.g., SYN-ACK packet)", output
     # need sudo permission
