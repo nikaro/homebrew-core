@@ -19,12 +19,11 @@ class VowpalWabbit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b0aa875aad744729cb35b5d07e6d4f114fdfa56d547a671ca89b37f83f2aa2bc"
-    sha256 cellar: :any,                 arm64_sequoia: "b2481c1fc9bff8698b47cd14f04758fd3d692bb910fbf5d04bca98edc1ff3663"
-    sha256 cellar: :any,                 arm64_sonoma:  "8e4910e79afc071a151ae018453987b45aa19ca4b45df8bf68417d010043ab48"
-    sha256 cellar: :any,                 sonoma:        "1860be73a277dd90ac3761230de3c903df37bbcc37e19fc7f4391c56a31dec21"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0059589a36a2a7bec959346f8ce478586c06a5d8bf6303fa845d87498cf069ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b464231f8052b9d51d4b3da74de076e5a93981dc60298c13cb2cac0c00ab1fd1"
+    sha256 cellar: :any, arm64_golden_gate: "5044866ccd2a37958ae1dcf7e92fd28c8e80a995ebdc4ac220dd0421e4fc0f45"
+    sha256 cellar: :any, arm64_tahoe:       "06c6aa41afc3beb526bdc2e424c69ce5c4a143d158885d87dc366dea6279d079"
+    sha256 cellar: :any, arm64_sequoia:     "ccece3ff0e46959b4735c4f309f6f89dc30305f7665fd5e44c1ee4f6c47b779e"
+    sha256 cellar: :any, arm64_linux:       "a7035c3e87f8e27bc86f474a71133245f974e0196c46fb12e3db877c57b43747"
+    sha256 cellar: :any, x86_64_linux:      "53e5278d9a14ab90b7f838baa74c6de0f965601df4757736ead9c70d5a47d1ac"
   end
 
   depends_on "boost" => :build
