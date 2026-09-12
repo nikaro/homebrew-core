@@ -12,6 +12,14 @@ class RangeV3 < Formula
 
   depends_on "cmake" => :build
 
+  # Drop the std forward declarations that clash with libc++ 22 (macOS 27 SDK)
+  patch do
+    url "https://github.com/ericniebler/range-v3/commit/54fca7092f21bb5f06bf25bc0d99a8f58142a14b.patch?full_index=1"
+    sha256 "9fa907eaea528c547afd4643fa6e15131a6c827281b18628878794e9cc929414"
+    type :unofficial
+    resolves "https://github.com/ericniebler/range-v3/pull/1863"
+  end
+
   def install
     args = %w[
       -DRANGE_V3_TESTS=OFF
