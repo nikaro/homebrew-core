@@ -5,7 +5,7 @@ class GnuSmalltalk < Formula
   revision 10
 
   stable do
-    url "https://ftpmirror.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
+    url "https://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
     mirror "https://ftp.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
     sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
 
@@ -70,6 +70,8 @@ class GnuSmalltalk < Formula
       --without-x
     ]
 
+    # K&R function definitions in the bundled getopt are invalid in the C23 default that autoconf 2.73 picks
+    ENV["ac_cv_prog_cc_c23"] = "no"
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *args, *std_configure_args
     ENV.deparallelize if build.head?
