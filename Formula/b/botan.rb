@@ -52,7 +52,11 @@ class Botan < Formula
       --with-sqlite3
       --system-cert-bundle=#{Formula["ca-certificates"].pkgetc}/cert.pem
     ]
-    args << "--with-commoncrypto" if OS.mac?
+    if OS.mac?
+      args << "--with-commoncrypto"
+      # The CLI's `sandbox_init` profile constants were removed from the macOS 27 SDK
+      args << "--without-os-features=sandbox_proc"
+    end
 
     if OS.mac? && DevelopmentTools.clang_build_version <= 1400
       ldflags = %W[-L#{formula_opt_lib("llvm")}/c++ -L#{formula_opt_lib("llvm")}/unwind -lunwind]
