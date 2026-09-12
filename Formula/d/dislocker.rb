@@ -7,9 +7,9 @@ class Dislocker < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "0c9f36fe94169843d624f2cff98960d9dcf91a70948061a7c192dc44273e5a8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "20635c3bd30ada8a1bb95f87460ce8fb7c1e7b42691c7cb56fbaa2e74d407f00"
+    rebuild 2
+    sha256 cellar: :any, arm64_linux:  "6fc800d70967d83257c8716d1a802960c44a892f7a3594db882737cceebeb5c3"
+    sha256 cellar: :any, x86_64_linux: "5656ee57b450b544d660941fa9682cc999dcde547cd4b3911f5f5660c82a4b71"
   end
 
   depends_on "cmake" => :build
