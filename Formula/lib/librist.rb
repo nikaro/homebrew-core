@@ -26,15 +26,26 @@ class Librist < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "cjson"
+  depends_on "gmp"
+  depends_on "gnutls"
   depends_on "libmicrohttpd"
   depends_on "lz4"
-  depends_on "mbedtls@3"
+  depends_on "nettle"
 
   def install
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}"
 
-    system "meson", "setup", "--default-library", "both", "-Dfallback_builtin=false", *std_meson_args, "build", "."
-    system "meson", "compile", "-C", "build"
+    # Use gnutls as it is already a dependency via libmicrohttpd.
+    # Also aligns with Debian and Fedora.
+    args = %w[
+      --default-library=both
+      -Dfallback_builtin=false
+      -Duse_nettle=true
+      -Duse_mbedtls=false
+    ]
+
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 
