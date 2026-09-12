@@ -34,10 +34,12 @@ class Gfxutil < Formula
 
   def install
     (buildpath.parent/"edk2").install resource("edk2")
+    # TODO: Remove when Apple clang fixes llvm/llvm-project#190340 (`wcslen` idiom ignores `-fshort-wchar`)
     xcodebuild "-project", "gfxutil.xcodeproj",
                "-arch", Hardware::CPU.arch,
                "-configuration", "Release",
-               "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+               "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
+               "OTHER_CFLAGS=$(inherited) -fno-builtin-wcslen"
     bin.install "build/Release/gfxutil"
   end
 
