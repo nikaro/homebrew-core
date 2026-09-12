@@ -26,8 +26,16 @@ class Gascity < Formula
     depends_on "flock"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
-    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}", output: bin/"gc"), "./cmd/gc"
+    # TODO: Remove http2legacy tag when Gascity works without it in Go 1.27 (in release > 1.4.1?)
+    # ref: https://github.com/gastownhall/gascity/pull/5030
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}", tags: "http2legacy", output: bin/"gc"), "./cmd/gc"
   end
 
   test do
