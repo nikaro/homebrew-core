@@ -34,8 +34,9 @@ class Gom < Formula
   def gdk_pixbuf_add_pkgconfig_paths!
     deps_set = Set.new
     Formula["gdk-pixbuf"].recursive_dependencies do |_, dep|
-      Dependency.prune if !dep.required? || deps_set.include?(dep)
+      next Dependable::PRUNE if !dep.required? || deps_set.include?(dep)
 
+      deps_set << dep
       dep_f = dep.to_formula
       ENV.append_path "PKG_CONFIG_PATH", dep_f.opt_lib/"pkgconfig" if (dep_f.opt_lib/"pkgconfig").exist?
       ENV.append_path "PKG_CONFIG_PATH", dep_f.opt_share/"pkgconfig" if (dep_f.opt_share/"pkgconfig").exist?
