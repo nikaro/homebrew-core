@@ -30,6 +30,9 @@ class Osmfilter < Formula
   end
 
   def install
+    # Upstream declares `bool`, `false`, and `true` as identifiers, which do not compile as C23.
+    ENV["ac_cv_prog_cc_c23"] = "no"
+
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make", "install"
