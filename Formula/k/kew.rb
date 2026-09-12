@@ -1,8 +1,8 @@
 class Kew < Formula
   desc "Command-line music player"
   homepage "https://github.com/ravachol/kew"
-  url "https://github.com/ravachol/kew/archive/refs/tags/v4.3.2.tar.gz"
-  sha256 "f9a21c55f161cbf5f2d7106e1b815aa73fbc31c8cf1cd2d03a9fe07e6566286c"
+  url "https://github.com/ravachol/kew/archive/refs/tags/v4.3.3.tar.gz"
+  sha256 "9fe0d4feecaa62cff41241f093bb803881ad35eb09f88d1db35cc030486dcf9c"
   license "GPL-2.0-or-later"
   head "https://github.com/ravachol/kew.git", branch: "main"
 
@@ -44,8 +44,10 @@ class Kew < Formula
 
   test do
     ENV["XDG_CONFIG_HOME"] = testpath/".config"
+    ENV["XDG_STATE_HOME"] = testpath/".local/state"
 
     (testpath/".config/kew").mkpath
+    (testpath/".local/state").mkpath
     (testpath/".config/kew/kewrc").write ""
 
     system bin/"kew", "path", testpath
