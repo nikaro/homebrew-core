@@ -19,11 +19,16 @@ class Charm < Formula
   end
 
   depends_on "breezy" => :build
-  depends_on "go" => :build
+  # Go 1.27 dropped bzr support: https://github.com/golang/go/issues/78090
+  depends_on "go@1.26" => :build
 
-  def install
+  def fetch
     # Charm requires bzr (bazaar vcs) for fetching launchpad.net/lpad Go module.
     ENV["GOVCS"] = "launchpad.net:bzr"
+    system "go", "mod", "download"
+  end
+
+  def install
     system "go", "build", *std_go_args, "./cmd/charm"
   end
 
