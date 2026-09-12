@@ -1,10 +1,21 @@
 class EvilHelix < Formula
   desc "Soft fork of the helix editor"
   homepage "https://evil-helix.github.io"
-  url "https://github.com/usagi-flow/evil-helix/archive/refs/tags/release-20250915.tar.gz"
-  sha256 "1a5dc826890eede336b2f2cabbb1bb19b3e25ebbc0c42ac09eb7d9348bbf27cc"
   license "MPL-2.0"
   head "https://github.com/usagi-flow/evil-helix.git", branch: "main"
+
+  stable do
+    url "https://github.com/usagi-flow/evil-helix/archive/refs/tags/release-20250915.tar.gz"
+    sha256 "1a5dc826890eede336b2f2cabbb1bb19b3e25ebbc0c42ac09eb7d9348bbf27cc"
+
+    # Backport the gotmpl grammar switch, its previous repository was deleted
+    patch do
+      url "https://github.com/usagi-flow/evil-helix/commit/7ea891969ae2592403ce1ee2c84fa119133c5cea.patch?full_index=1"
+      sha256 "d9c4eb16ca38063c9bd4d40ec77dc3ee334d16ba6af14f38273c3a319594219e"
+      type :backport
+      resolves "https://github.com/helix-editor/helix/pull/14746"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "088ce87991fec98ca0f5d28f7a781841cbe12259b24fb938f3082999e9b6ba83"
