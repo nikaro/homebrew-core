@@ -37,6 +37,9 @@ class Libident < Formula
     # config scripts may fail to detect the correct build type).
     system "autoreconf", "--force", "--install", "--verbose"
 
+    # C23 makes `()` mean `(void)`, breaking the K&R-style signal handler pointer in id_query.c
+    ENV.append_to_cflags "-std=gnu17"
+
     system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
   end
