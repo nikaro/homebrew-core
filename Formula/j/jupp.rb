@@ -40,6 +40,8 @@ class Jupp < Formula
   conflicts_with "joe", because: "both install the same binaries"
 
   def install
+    # C23 makes `()` mean `(void)`, breaking the K&R-style `jpoly_int` callback typedef
+    ENV.append_to_cflags "-std=gnu17"
     ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin" if OS.mac?
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--enable-sysconfjoesubdir=/jupp", *std_configure_args
