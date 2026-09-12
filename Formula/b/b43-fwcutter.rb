@@ -26,6 +26,8 @@ class B43Fwcutter < Formula
       m.gsub! "install -d -o 0 -g 0", "install -d"
       # Fix manpage installation directory
       m.gsub! "$(PREFIX)/man", man
+      # Prevent `make` from using SDK metadata as the source file
+      m.gsub! "obj/%.o:", "obj/%.o: %.c"
     end
     # b43-fwcutter has no ./configure
     system "make", "PREFIX=#{prefix}", "install"
