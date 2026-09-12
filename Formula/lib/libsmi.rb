@@ -36,6 +36,8 @@ class Libsmi < Formula
   def install
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+    # C23 makes `()` mean `(void)`, breaking the K&R-style parser prototypes
+    ENV.append_to_cflags "-std=gnu17"
 
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
