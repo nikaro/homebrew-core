@@ -6,12 +6,11 @@ class Libxo < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 arm64_tahoe:   "953e91c12c927736357428136d2403b1e2d610e1d3e8fd557fd7878759d18aa4"
-    sha256 arm64_sequoia: "c8250f122d0d6741448070f5c0eccd4beecf5a6b1315a4acc1bceb6be3f92588"
-    sha256 arm64_sonoma:  "be39da316cca8f97ef0c4c226dd6b4c56a03393bd3ba1b33c1d92d71846d89ba"
-    sha256 sonoma:        "764b52990cd9477f2e6c0e6665270a2d6b2528b8b5ce5053f9d734e1f23eb4c3"
-    sha256 arm64_linux:   "ee547be31bd6316d94d32176ee7c6d0ab7664f628c328338f3282e5e8a631986"
-    sha256 x86_64_linux:  "39d3eea6c0f848ddf09757a8a79113bd8d1b116315208018899b4d15f212f06f"
+    sha256 arm64_golden_gate: "b86ca3388c4a3eed5179117c8557edef4448618280d4e47f8e13911928582877"
+    sha256 arm64_tahoe:       "33bda6fc222a38b83f8425e376c25935c53253687d4a479ebcf76dfe99ba9193"
+    sha256 arm64_sequoia:     "eab5f1bf937d3250427ce79c5fe13e599d6b87f37190eb44fb7901a8fbbceb64"
+    sha256 arm64_linux:       "c29d085c614a5f90f9a03ebc6c8999ff04e79cbcd1f820243f68b3bccfe9c933"
+    sha256 x86_64_linux:      "66b6651c968f2264bad41def9222a5c7da9719b65914128c468aa71e9782f12b"
   end
 
   depends_on "byacc" => :build # the XPath parser needs byacc, not bison
