@@ -31,9 +31,8 @@ class Folderify < Formula
       </svg>
     EOS
 
-    # folderify applies the test icon to a folder
-    system bin/"folderify", "test.svg", testpath.to_s
-    # Tests for the presence of the file icon
-    assert_path_exists testpath/"Icon\r"
+    # Stop at the iconset: `iconutil` needs LaunchServices, which the sandbox denies
+    system bin/"folderify", "test.svg", "--output-iconset", testpath/"test.iconset", "--no-progress"
+    assert_predicate testpath/"test.iconset/icon_512x512.png", :size?
   end
 end
