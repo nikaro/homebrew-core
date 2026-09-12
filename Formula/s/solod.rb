@@ -2,10 +2,9 @@ class Solod < Formula
   desc "Strict subset of Go with transpiler that translates to regular C"
   homepage "https://solod.dev/"
   url "https://github.com/solod-dev/solod.git",
-    tag:      "v0.3.0",
-    revision: "b4a71c0a7ec37a1657938f262ad8fa9bf55b46d4"
+    tag:      "v0.4.0",
+    revision: "e84cd34481f735ed30d03ef69eedd5c371c21532"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/solod-dev/solod.git", branch: "main"
 
   bottle do
