@@ -1,8 +1,8 @@
 class Godns < Formula
   desc "Dynamic DNS client with multiple providers support"
   homepage "https://github.com/TimothyYe/godns"
-  url "https://github.com/TimothyYe/godns/archive/refs/tags/v3.4.3.tar.gz"
-  sha256 "0a38ffd19b39371d9e28970679d74b4c04f8476a2f19ea8966a0b9767248f63e"
+  url "https://github.com/TimothyYe/godns/archive/refs/tags/v3.4.4.tar.gz"
+  sha256 "77601cc500a45cb70e2f4ff5262d493ab298fb8d29b6c5a462ac776ddbd4f875"
   license "Apache-2.0"
   head "https://github.com/TimothyYe/godns.git", branch: "master"
 
@@ -19,8 +19,8 @@ class Godns < Formula
   depends_on "go" => :build
 
   resource "web" do
-    url "https://github.com/TimothyYe/godns/releases/download/v3.4.3/godns-web-v3.4.3.zip"
-    sha256 "4e845347cf580e8c25350423c8c28003bc2ab3c978a80eb8c336c9861e70d0a6"
+    url "https://github.com/TimothyYe/godns/releases/download/v3.4.4/godns-web-v3.4.4.zip"
+    sha256 "9c3f32a163b9783fffb67bed6d38d8b8a9d14bc853998f19cb39e9416e4ebf33"
 
     livecheck do
       formula :parent
