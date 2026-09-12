@@ -36,6 +36,14 @@ class IcarusVerilog < Formula
     depends_on "zlib-ng-compat"
   end
 
+  # Backport fix for missing mach-o/dyld.h include on macOS 27 SDK
+  patch do
+    url "https://github.com/steveicarus/iverilog/commit/f20865a5ea4ea7f5cdcbb6d19b0751a9390a8978.patch?full_index=1"
+    sha256 "a56837d524f2a7f6bc05435601d7951cd1bdb94fb7ce3c0d43aa774475da6d52"
+    type :backport
+    resolves "https://github.com/steveicarus/iverilog/pull/1315"
+  end
+
   def install
     system "autoconf"
     system "./configure", "--prefix=#{prefix}"
