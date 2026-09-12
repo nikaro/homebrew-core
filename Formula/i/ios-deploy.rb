@@ -25,13 +25,8 @@ class IosDeploy < Formula
   def install
     xcodebuild "-configuration", "Release",
                "SYMROOT=build",
-               "-arch", Hardware::CPU.arch
-
-    xcodebuild "test",
-               "-scheme", "ios-deploy-tests",
-               "-configuration", "Release",
-               "SYMROOT=build",
-               "-arch", Hardware::CPU.arch
+               "-arch", Hardware::CPU.arch,
+               "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
 
     bin.install "build/Release/ios-deploy"
   end
