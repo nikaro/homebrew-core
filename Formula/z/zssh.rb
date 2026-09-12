@@ -29,6 +29,9 @@ class Zssh < Formula
     # Workaround for Xcode 15
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
+    # C23 breaks K&R-style function definitions
+    ENV.append_to_cflags "-std=gnu17" if DevelopmentTools.clang_build_version >= 1700
+
     rm_r "lrzsz-0.12.20"
 
     # NOTE: readline must be disabled as the license is incompatible with GPL-2.0-only,
