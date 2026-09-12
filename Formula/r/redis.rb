@@ -54,6 +54,8 @@ class Redis < Formula
     ENV.append "CXXFLAGS", "-std=gnu++20"
     # VectorSimilarity selects its SIMD kernels at runtime via cpu_features.
     ENV.runtime_cpu_detection
+    # FIXME: redisbloom's vendored readies has no `OSX_MIN_SDK_VER` past tahoe, leaving `-mmacosx-version-min=` empty
+    ENV["OSX_MIN_SDK_VER"] = MacOS.version.to_s if OS.mac?
     system "gmake", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes",
            "REDISEARCH_GENERATE_HEADERS=0", "IGNORE_MISSING_DEPS=1", "LTO=0"
 
