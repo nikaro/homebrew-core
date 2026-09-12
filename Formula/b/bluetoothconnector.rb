@@ -7,12 +7,10 @@ class Bluetoothconnector < Formula
   head "https://github.com/lapfelix/BluetoothConnector.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a09325ad64ca0a614f87d18aa6e54474d841d985a94bba2f7f7c15950a985c8e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e8786893183eba145ea2282b69540bd3c5b331decd4587090e94ac8b828e050"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4fe88b3f3feca2d6bc8c39cb06af98f81ee42a04fac836873f80b06d87cc37d8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4f1e8d18ce7e2ee41a70c1a8d952a91404e4701725075e56f87bb063416880b0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0094ab63b0f1d951007bbe29ec8413e1cf4548687fde0f051f2fdc8ddc7b754a"
-    sha256 cellar: :any_skip_relocation, ventura:       "360733d6b564009fa2fde910ab9fd67baddd172e2a3763fda858db7ce0626eb4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "545a4128d0728c2a20f69c6e2863eeb8abf2c101da2e865df4e53e6ef64d9830"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6e9f16794456553e1bb96608e579c0fcdb6930b793a2f6135a3113d3bf1072e3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "61cd24ebb1d29f0f3f9cfe2bb890bd29aacedb8d43a035d422566a4552670b70"
   end
 
   depends_on :macos
