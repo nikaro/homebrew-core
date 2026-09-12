@@ -47,7 +47,8 @@ class Newt < Formula
               (prefix/Language::Python.site_packages(python3)).to_s
     end
 
-    system "./configure", "--prefix=#{prefix}", "--without-tcl", "--with-python=#{python3}"
+    # The Makefile also uses the `--with-python` value as a build directory name, so it must not be a path
+    system "./configure", "--prefix=#{prefix}", "--without-tcl", "--with-python=#{python3.basename}"
     system "make", "install"
   end
 
